@@ -1,0 +1,17 @@
+*/
+Pseudo code for the card game War
+A deck of 32 cards is dealt between two players face down.
+
+Both players turn a card over at the same time and place in middle of table side by side.
+    -- Whomever's card is higher takes both cards and places at bottom of their deck.
+If both players turn over a card with the same value it becomes war!
+
+    -- While in War 
+        Both players place 3 cards face down over original card played
+        and place one card face up 
+        -— Whichever player turns over the higher card wins all cards on table 
+        —- If both players turn over card with same value, another war begins 
+            and players will place 3 more cards face down on their pile and one card face up
+            until there is a card higher than opponent.
+First player to collect full deck of cards wins.
+/*
