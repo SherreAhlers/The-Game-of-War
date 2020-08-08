@@ -4,16 +4,82 @@ html,
     box-sizing: border-box;
 }
 
-main {
+body {
+    background: url('https://i.imgur.com/jyBK4JE.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
+.grid-container {
     display: grid;
-    grid-template-columns: 30vmin 15vmin 30vmin;
-    grid-template-rows: 10vmin 10vmin 30vmin;
-    background-color: gold;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+header {
+    display: grid;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+main {
+    text-align: center;
+    background-color: black;
+    grid-column: 1 / span 2;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: yellow;
+    font-size: 20px;
+}
+
+edge {
+    display: grid;
+    grid-template-areas: 'bottom   bottom';
+    grid-row: 4;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: tan;
+    justify-content: center;
+    align-items: center;
+    padding: -10px;
+}
+
+aside {
+    display: grid;
+    grid-template-areas: 'bottom   bottom';
+    grid-row: 4;
+    margin-right: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: tan;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    display: grid;
+    grid-column: 1 / span 2;
+    grid-row: 5;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: darkred
 }
 
 h1 {
     text-align: center;
-    color: deeppink;
+    color: red;
 }
 
 h2 {
@@ -28,24 +94,23 @@ h2 {
     color: darkgreen;
 }
 
-#shuffle-deck {
-    background-color: hotpink;
-}
+#shuffle-deck {}
 
 #player1-deck {
-    background-color: aqua;
+    background-color: rgb(19, 26, 112);
     cursor: pointer;
 }
 
 #player2-deck {
-    background-color: blueviolet;
+    background-color: rgb(10, 53, 24);
     cursor: pointer;
 }
 
 #replay {
-    background-color: deeppink;
+    background-color: black;
     cursor: pointer;
     color: orange;
+    font-size: large;
 }
 
 @charset "UTF-8";
