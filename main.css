@@ -5,7 +5,7 @@ html,
 }
 
 body {
-    background: url('https://i.imgur.com/jyBK4JE.jpg');
+    background: url('https://i.imgur.com/m1PgKfo.jpg');
     background-size: cover;
     height: 100%;
 }
@@ -16,7 +16,7 @@ body {
     grid-row: 1 / 4;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 header {
@@ -26,19 +26,21 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
+    font-size: 35px;
 }
 
 main {
     text-align: center;
-    background-color: black;
-    grid-column: 1 / span 2;
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    grid-column: 1 / span 3;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
     color: yellow;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 edge {
@@ -47,20 +49,17 @@ edge {
     grid-row: 4;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: tan;
     justify-content: center;
     align-items: center;
-    padding: -10px;
 }
 
 aside {
     display: grid;
     grid-template-areas: 'bottom   bottom';
     grid-row: 4;
-    margin-right: 400px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: tan;
+    margin-right: 500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     justify-content: center;
     align-items: center;
 }
@@ -74,12 +73,11 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: darkred
 }
 
 h1 {
     text-align: center;
-    color: red;
+    color: black;
 }
 
 h2 {
@@ -87,30 +85,35 @@ h2 {
 }
 
 #player-1-location {
-    color: darkblue;
+    color: black;
 }
 
 #player-2-location {
-    color: darkgreen;
+    color: black;
 }
-
-#shuffle-deck {}
 
 #player1-deck {
     background-color: rgb(19, 26, 112);
-    cursor: pointer;
+    font-size: 25px;
 }
 
 #player2-deck {
     background-color: rgb(10, 53, 24);
+    font-size: 25px;
+}
+
+#draw-card {
+    background-color: black;
     cursor: pointer;
+    color: orange;
+    font-size: 40px;
 }
 
 #replay {
     background-color: black;
     cursor: pointer;
     color: orange;
-    font-size: large;
+    font-size: 40px;
 }
 
 @charset "UTF-8";
@@ -535,3 +538,5 @@ h2 {
 .card.E.shadow {
     box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75);
 }
+
+@media screen only
