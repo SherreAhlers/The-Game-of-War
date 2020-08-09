@@ -164,7 +164,8 @@ h2 {
     border: 0.15em dashed #daa520;
 }
 
-.card.diamonds.A,
+
+/* .card.diamonds.A,
 .card.dA,
 .card.♦A {
     background-image: url("../images/diamonds/diamonds-A.svg");
@@ -240,7 +241,7 @@ h2 {
 .card.d02,
 .card.♦02 {
     background-image: url("../images/diamonds/diamonds-r02.svg");
-}
+} */
 
 .card.hearts.A,
 .card.hA,
@@ -398,7 +399,8 @@ h2 {
     background-image: url("../images/spades/spades-r02.svg");
 }
 
-.card.clubs.A,
+
+/* .card.clubs.A,
 .card.cA,
 .card.♣A {
     background-image: url("../images/clubs/clubs-A.svg");
@@ -474,23 +476,12 @@ h2 {
 .card.c02,
 .card.♣02 {
     background-image: url("../images/clubs/clubs-r02.svg");
-}
+} */
 
-.card.joker {
-    background-image: url("../images/jokers/joker.svg");
-}
 
-.card.joker-black {
-    background-image: url("../images/jokers/joker-black.svg");
-}
-
-.card.joker-red {
-    background-image: url("../images/jokers/joker-red.svg");
-}
-
-.card.back {
+/* .card.back {
     background-image: url("../images/backs/blue.svg");
-}
+} */
 
 .card.back-blue {
     background-image: url("../images/backs/blue.svg");
