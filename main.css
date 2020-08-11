@@ -103,13 +103,6 @@ h2 {
     font-size: 42px;
 }
 
-#start-game {
-    background-color: black;
-    cursor: pointer;
-    color: orange;
-    font-size: 40px;
-}
-
 #play {
     background-color: black;
     cursor: pointer;

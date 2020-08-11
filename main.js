@@ -1,6 +1,4 @@
 // /*----- constants -----*/
-//const masterDeck = buildMasterDeck();
-// renderDeckInContainer(masterDeck, document.getElementById('player1-deck'));
 const suits = ['s', 'h']
 const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
 const cardWorth = {
@@ -53,8 +51,8 @@ let gameWin; // player with full deck
 // document.createElement('')
 
 /*----- event listeners -----*/
-// document.querySelector('#start-game').addEventListener('click', renderShowCards);
-// document.querySelector('#play').addEventListener('click', handleClickEvent);
+document.querySelector('#play').addEventListener('click', renderShowCards);
+// document.querySelector('#play').addEventListener('click', buttonClickEvent);
 // document.querySelector('#replay').addEventListener('click', init);
 
 /*----- functions -----*/
@@ -82,12 +80,10 @@ function showCards() {
     let p1Card = document.getElementById('board-deck-p1')
     p1Card.className = `card ${c.face}`
     let c2 = player2.pop()
-    let p2Card = document.getElementById('board-deck-p2') //.document.querySelector('#start-game').addEventListener('click', renderShowCards);
+    let p2Card = document.getElementById('board-deck-p2')
     p2Card.className = `card ${c2.face}`
 };
 
-dealHands();
-showCards();
 renderShuffleDeck();
 
 function renderShuffleDeck() {
@@ -99,17 +95,14 @@ function renderShuffleDeck() {
     }
 }
 //
-// function renderShowCards(e) {
-// This will determine when the start game button has been clicked
-// and will display the first player card and second player card
-//     basically what should happen to browser when clicked    
-// };
-//
-//
-// function renderDrawCards() {
-// This will display the new cards for both player one and two, will be clicked every round
-// };
-//
+function renderShowCards(evt) {
+    const btn = evt.target
+        // when this is clicked run these two functions
+    if (btn === document.querySelector('#play')) {
+        dealHands()
+        showCards()
+    };
+};
 //
 // function init() {
 //     // this will initialize the game
@@ -118,7 +111,7 @@ function renderShuffleDeck() {
 //
 // function war() {
 //     if (player1 === player2) {
-//         (player1.draw * 3 facedown && 1 faceup) && (player2.draw * 3 facedown && 1 faceup)
+//         (player1.draw * 3) && (player2.draw * 3)
 //         roundWinner = highest card
 //     }
 // };
@@ -144,9 +137,3 @@ function renderShuffleDeck() {
 //     // this will display a message on the screen based on who won that particular round of war
 //     // this will display a message when the game is won (when one player has all the cards)
 // };
-//
-// function render() {
-//     // this will call the DOM and make changes to
-//     //the browser as the game progresses and
-//     //when game replay clicked
-// }
