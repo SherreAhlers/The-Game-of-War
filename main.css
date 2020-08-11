@@ -6,8 +6,11 @@ html,
 
 body {
     background: url('https://i.imgur.com/m1PgKfo.jpg');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
 }
 
 .grid-container {
@@ -16,7 +19,6 @@ body {
     grid-row: 1 / 4;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
 }
 
 header {
@@ -26,10 +28,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 35px;
+    font-size: 50px;
 }
 
 main {
@@ -37,8 +36,6 @@ main {
     grid-column: 1 / span 3;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
     color: yellow;
     font-size: 26px;
 }
@@ -47,8 +44,6 @@ edge {
     display: grid;
     grid-template-areas: 'bottom   bottom';
     grid-row: 4;
-    margin-top: 50px;
-    margin-bottom: 50px;
     justify-content: center;
     align-items: center;
 }
@@ -57,9 +52,7 @@ aside {
     display: grid;
     grid-template-areas: 'bottom   bottom';
     grid-row: 4;
-    margin-right: 500px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-right: 100px;
     justify-content: center;
     align-items: center;
 }
@@ -68,8 +61,6 @@ footer {
     display: grid;
     grid-column: 1 / span 2;
     grid-row: 5;
-    margin-top: 50px;
-    margin-bottom: 50px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -85,24 +76,41 @@ h2 {
 }
 
 #player-1-location {
-    color: black;
+    color: white;
+    font-size: 25px;
 }
 
 #player-2-location {
     color: black;
+    font-size: 25px;
+}
+
+#board-deck-p1 {
+    font-size: 42px;
+}
+
+#board-deck-p2 {
+    font-size: 42px;
 }
 
 #player1-deck {
-    background-color: rgb(19, 26, 112);
-    font-size: 25px;
+    background-image: url("https://i.imgur.com/H6Vql71.png");
+    font-size: 42px;
 }
 
 #player2-deck {
-    background-color: rgb(10, 53, 24);
-    font-size: 25px;
+    background-image: url("https://i.imgur.com/H6Vql71.png");
+    font-size: 42px;
 }
 
-#draw-card {
+#start-game {
+    background-color: black;
+    cursor: pointer;
+    color: orange;
+    font-size: 40px;
+}
+
+#play {
     background-color: black;
     cursor: pointer;
     color: orange;
@@ -195,49 +203,49 @@ h2 {
 }
 
 .card.hearts.r09,
-.card.h09,
+.card.h9,
 .card.♥09 {
     background-image: url("card-deck-imgs/hearts/hearts-9.svg");
 }
 
 .card.hearts.r08,
-.card.h08,
+.card.h8,
 .card.♥08 {
     background-image: url("card-deck-imgs/hearts/hearts-8.svg");
 }
 
 .card.hearts.r07,
-.card.h07,
+.card.h7,
 .card.♥07 {
     background-image: url("card-deck-imgs/hearts/hearts-7.svg");
 }
 
 .card.hearts.r06,
-.card.h06,
+.card.h6,
 .card.♥06 {
     background-image: url("card-deck-imgs/hearts/hearts-6.svg");
 }
 
 .card.hearts.r05,
-.card.h05,
+.card.h5,
 .card.♥05 {
     background-image: url("card-deck-imgs/hearts/hearts-5.svg");
 }
 
 .card.hearts.r04,
-.card.h04,
+.card.h4,
 .card.♥04 {
     background-image: url("card-deck-imgs/hearts/hearts-4.svg");
 }
 
 .card.hearts.r03,
-.card.h03,
+.card.h3,
 .card.♥03 {
     background-image: url("card-deck-imgs/hearts/hearts-3.svg");
 }
 
 .card.hearts.r02,
-.card.h02,
+.card.h2,
 .card.♥02 {
     background-image: url("card-deck-imgs/hearts/hearts-2.svg");
 }
@@ -273,49 +281,49 @@ h2 {
 }
 
 .card.spades.r09,
-.card.s09,
+.card.s9,
 .card.♠09 {
     background-image: url("card-deck-imgs/spades/spades-9.svg");
 }
 
 .card.spades.r08,
-.card.s08,
+.card.s8,
 .card.♠08 {
     background-image: url("card-deck-imgs/spades/spades-8.svg");
 }
 
 .card.spades.r07,
-.card.s07,
+.card.s7,
 .card.♠07 {
     background-image: url("card-deck-imgs/spades/spades-7.svg");
 }
 
 .card.spades.r06,
-.card.s06,
+.card.s6,
 .card.♠06 {
     background-image: url("card-deck-imgs/spades/spades-6.svg");
 }
 
 .card.spades.r05,
-.card.s05,
+.card.s5,
 .card.♠05 {
     background-image: url("card-deck-imgs/spades/spades-5.svg");
 }
 
 .card.spades.r04,
-.card.s04,
+.card.s4,
 .card.♠04 {
     background-image: url("card-deck-imgs/spades/spades-4.svg");
 }
 
 .card.spades.r03,
-.card.s03,
+.card.s3,
 .card.♠03 {
     background-image: url("card-deck-imgs/spades/spades-3.svg");
 }
 
 .card.spades.r02,
-.card.s02,
+.card.s2,
 .card.♠02 {
     background-image: url("card-deck-imgs/spades/spades-2.svg");
 }
@@ -370,4 +378,25 @@ h2 {
     box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75);
 }
 
-@media screen only
+@media only screen and (max-width: 500px) {
+    header {
+        grid-area: 2;
+        grid-row: 1;
+    }
+    main {
+        grid-area: 2;
+        grid-row: 2;
+    }
+    edge {
+        grid-area: 2;
+        grid-row: 2;
+    }
+    aside {
+        grid-area: 2;
+        grid-row: 2;
+    }
+    footer {
+        grid-area: 2;
+        grid-row: 3;
+    }
+}
