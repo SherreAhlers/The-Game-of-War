@@ -315,10 +315,7 @@ h2 {
 }
 
 .card.back-blue {
-    background-image: url {
-        "card-deck-imgs/blueCardBack.svg"
-    }
-    ;
+    background-image: url("card-deck-imgs/blueCardBack.svg");
 }
 
 .card.west,

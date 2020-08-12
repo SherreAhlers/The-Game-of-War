@@ -19,6 +19,9 @@ const cardWorth = {
 
 const player1 = [];
 const player2 = [];
+let warArray = [];
+let player1Card;
+let player2Card;
 
 /*----- app's state (variables) -----*/
 let deck = []
@@ -69,19 +72,22 @@ function dealHands() {
     while (deck.length) {
         player1.push(deck.pop())
         player2.push(deck.pop())
+        console.log(deck)
     }
+    console.log(player1)
+    console.log(player2)
     if (deck.length <= 2) {
-        gameWin()
+        // gameWin()
     }
 }
 
 function showCards() {
-    let c = player1.pop()
+    player1Card = player1[player1.length - 1]
     let p1Card = document.getElementById('board-deck-p1')
-    p1Card.className = `card ${c.face}`
-    let c2 = player2.pop()
+    p1Card.className = `card ${player1Card.face}`
+    player2Card = player2[player2.length - 1]
     let p2Card = document.getElementById('board-deck-p2')
-    p2Card.className = `card ${c2.face}`
+    p2Card.className = `card ${player2Card.face}`
 };
 
 renderShuffleDeck();
@@ -106,15 +112,41 @@ function renderShowCards(evt) {
 };
 
 function roundWin() {
-    if (player1[player1.length - 1] > player2[player2.length - 1]) {
+    if (player1Card.worth > player2Card.worth) {
         console.log('player1 wins!')
-        return player1
-    } else if (player1[player1.length - 1] < player2[player2.length - 1]) {
+            // return player1
+        player1.unshift(player2Card)
+        player2.pop()
+        player1.unshift(player1.pop())
+        while (warArray.length) {
+            player1.unshift(warArray.pop())
+        }
+    } else if (player1Card.worth < player2Card.worth) {
         console.log('player 2 wins!')
-        return player2
+        player2.unshift(player1Card)
+        player1.pop()
+        player2.unshift(player2.pop())
+        while (warArray.length) {
+            player2.unshift(warArray.pop())
+        }
+        // return player2
     } else {
         console.log('tie, run war function')
-        war();
+        for (let i = 0; i < 2; i++) {
+            warArray.push(player2.pop())
+            warArray.push(player1.pop())
+        }
+        setTimeout(() => {
+            showCards()
+            roundWin()
+        }, 3000);
+        //player2Card = 
+        //     war();
+    }
+    if (player1.length === 0) {
+        console.log('game over player 2 wins!')
+    } else if (player2.length === 0) {
+        console.log('game over player 1 wins!')
     }
     // need to figure out how to push cards to player who wins round
 };
