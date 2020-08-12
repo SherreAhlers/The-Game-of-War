@@ -116,7 +116,7 @@ function roundWin() {
         console.log('tie, run war function')
         war();
     }
-    // = highest card
+    // need to figure out how to push cards to player who wins round
 };
 
 
@@ -139,15 +139,19 @@ function gameWin() {
     return winner; // use this to render winner of game
 };
 
+// function renderRoundWinner() {
+
+// };
 
 // function renderWinnerScore() {
 
 // };
 
-// function render() {
-//     renderShuffleDeck();
-//     renderShowCards();
-//     if (winner) {
-//         renderWinnerMessage();
-//     }
-// };
+function render() {
+    renderShuffleDeck();
+    renderShowCards();
+    // renderRoundWinner();
+    // if (winner) {
+    //     renderWinnerScore();
+    // }
+};
