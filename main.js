@@ -32,27 +32,24 @@ values.forEach(v => {
     })
 });
 
-let war; // if (player1.card === player2.card) {
+// let war; // if (player1.card === player2.card) {
 //   return player1.draw * 3 && player2.draw *3  // how do you add face up and down cards
 // if war, 3 cards face down && 1
 // card face up
-let roundWin; // highest card
-let gameWin; // player with full deck
+// let roundWin; // highest card
+// let gameWin; // player with full deck
 
 
 /*----- cached element references -----*/
-// document.querySelector('#board-deck-p1')
-// const player1 = document.querySelector('#player1-deck')
-// let player2 = document.querySelector('#player2-deck');
-// document.querySelector('#board-deck-p2')
-// document.getElementById('player-1-location')
-// document.getElementById('player-2-location')
-// document.createElement('')
-// document.createElement('')
+document.querySelector('#board-deck-p1')
+document.querySelector('#board-deck-p2')
+    // document.getElementById('player-1-location')
+    // document.getElementById('player-2-location')
+    // document.createElement('')
+    // document.createElement('')
 
 /*----- event listeners -----*/
 document.querySelector('#play').addEventListener('click', renderShowCards);
-// document.querySelector('#play').addEventListener('click', buttonClickEvent);
 // document.querySelector('#replay').addEventListener('click', init);
 
 /*----- functions -----*/
@@ -72,6 +69,9 @@ function dealHands() {
     while (deck.length) {
         player1.push(deck.pop())
         player2.push(deck.pop())
+    }
+    if (deck.length <= 2) {
+        gameWin()
     }
 }
 
@@ -101,39 +101,53 @@ function renderShowCards(evt) {
     if (btn === document.querySelector('#play')) {
         dealHands()
         showCards()
+        roundWin()
     };
 };
-//
-// function init() {
-//     // this will initialize the game
+
+function roundWin() {
+    if (player1[player1.length - 1] > player2[player2.length - 1]) {
+        console.log('player1 wins!')
+        return player1
+    } else if (player1[player1.length - 1] < player2[player2.length - 1]) {
+        console.log('player 2 wins!')
+        return player2
+    } else {
+        console.log('tie, run war function')
+        war();
+    }
+    // = highest card
+};
+
+
+function war() {
+    dealHands()
+    dealHands()
+    dealHands()
+    dealHands()
+    roundWin()
+
+};
+
+function gameWin() {
+    let winner;
+    if (player1.length === deck.length) {
+        winner = player1
+    } else if (player2.length === deck.length) {
+        winner = player2
+    }
+    return winner; // use this to render winner of game
+};
+
+
+// function renderWinnerScore() {
+
 // };
-//
-//
-// function war() {
-//     if (player1 === player2) {
-//         (player1.draw * 3) && (player2.draw * 3)
-//         roundWinner = highest card
+
+// function render() {
+//     renderShuffleDeck();
+//     renderShowCards();
+//     if (winner) {
+//         renderWinnerMessage();
 //     }
-// };
-//
-// function roundWin() {
-//     if (player1.card > player2.card) {
-//         winner = 'player1';
-//     } else if (player1.card < player2.card) {
-//         winner = "player2";
-//     } else {
-//         war();
-//     }
-//     // = highest card
-// };
-//
-// function gameWin() {
-//     if (player1 === deck.length ||
-//         player2 === deck.length)
-//         return winner
-// };
-//
-// function msgEl() {
-//     // this will display a message on the screen based on who won that particular round of war
-//     // this will display a message when the game is won (when one player has all the cards)
 // };
