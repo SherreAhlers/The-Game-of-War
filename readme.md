@@ -3,7 +3,7 @@
 This is a fun and exciting card game played by two players!...
 The object of the game is too win all the cards in the deck.
 
-<img src="https://i.imgur.com/C0yn2D5.jpg" width="600">
+<img src="https://i.imgur.com/yz4L4Rc.jpg" width="600">
 <img src="https://i.imgur.com/AJXFFGF.jpg" width="600">
 
 ## Game Play Instructions
