@@ -40,6 +40,14 @@ main {
     font-size: 26px;
 }
 
+#msg {
+    display: grid;
+    grid-column: 1 / span 3;
+    grid-row: 3;
+    align-items: center;
+    justify-content: center;
+}
+
 edge {
     display: grid;
     grid-template-areas: 'bottom   bottom';
@@ -76,7 +84,7 @@ h2 {
 }
 
 #player-1-location {
-    color: white;
+    color: black;
     font-size: 25px;
 }
 
@@ -350,25 +358,25 @@ h2 {
     box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
     header {
-        grid-area: 2;
+        grid-area: 1;
         grid-row: 1;
     }
     main {
-        grid-area: 2;
+        grid-area: 1;
         grid-row: 2;
     }
     edge {
-        grid-area: 2;
+        grid-area: 1;
         grid-row: 2;
     }
     aside {
-        grid-area: 2;
+        grid-area: 1;
         grid-row: 2;
     }
     footer {
-        grid-area: 2;
+        grid-area: 1;
         grid-row: 3;
     }
 }

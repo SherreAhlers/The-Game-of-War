@@ -36,7 +36,6 @@ let warArray = [];
 let player1Card;
 let player2Card;
 let winner;
-// let scores;
 
 /*----- cached element references -----*/
 const p1Card = document.getElementById('board-deck-p1')
@@ -58,7 +57,7 @@ function shuffle(a) {
         a[j] = x;
     }
     return a;
-}
+};
 shuffle(deck);
 
 function dealHands() {
@@ -69,9 +68,10 @@ function dealHands() {
     }
     console.log(player1)
     console.log(player2)
-    if (deck.length <= 2) {
-        gameWin()
-    }
+        // if (deck.length <= 2) {
+        //     checkGameWin()
+
+    // }
 }
 
 function showCards() {
@@ -92,15 +92,20 @@ function renderShuffleDeck() {
         const rndIdx = Math.floor(Math.random() * tempDeck.length);
         shuffleDeck.push(tempDeck.splice(rndIdx, 1)[0]);
     }
-}
+};
 //
 function renderShowCards(evt) {
     const btn = evt.target
         // when this is clicked run these two functions
     if (btn === document.querySelector('#play')) {
-        dealHands()
-        showCards()
-        roundWin() // if so need message/ or keep round score - which player won round
+        if (checkGameWin() === false) {
+            dealHands()
+            showCards()
+            roundWin()
+        } else {
+            renderMessage(checkGameWin())
+            console.log(checkGameWin())
+        }
     };
 };
 
@@ -134,57 +139,38 @@ function roundWin() {
             roundWin()
             war()
         }, 2000);
-        // }
-        // if (player1.length === 0) {
-        //     // gameWin()
-        //     // console.log('game over player 1 wins!') // find way to make this a DOM message
-        // } else if (player2.length === 0) {
-        //     // gameWin()
-        // }
-    };
-
-    function war() {
-        dealHands()
-        dealHands()
-        dealHands()
-        dealHands()
-        roundWin()
-
-    };
-
-    // function gameWin() {
-    //     return player1.length === 0 || player2.length === 0
+    }
     // }
+    // if (player1.length === 0) {
+    //     // gameWin()
+    //     // console.log('game over player 1 wins!') // find way to make this a DOM message
+    // } else if (player2.length === 0) {
+    //     // gameWin()
+    // }
+};
+
+function war() {
+    dealHands()
+    dealHands()
+    dealHands()
+    dealHands()
+    roundWin()
+
+};
 
 
-    function gameWin() {
-        if (player1.length === deck.length) {
-            winner = player1
-        } else if (player2.length === deck.length) {
-            winner = player2
-        }
+function checkGameWin() {
+    if (player1.length === deck.length) {
+        winner = 'player1'
         return winner;
-    };
+    } else if (player2.length === deck.length) {
+        winner = 'player2'
+        return winner;
+    } else {
+        return false;
+    }
+};
 
-    function render() {
-        renderShuffleDeck();
-        renderShowCards();
-        // renderRoundWinner();
-        // replayEl.style.visibility = gameWin() ? 'visible' : 'hidden';
-        // player1 = deck.length
-        // if (player1.length === deck.length) {
-        //     winner = player1
-        // } else if (player2.length === deck.length) {
-        //     winner = player2
-        // }
-
-        renderMessage();
-    };
-
-    function renderMessage() {
-        if (player1.length === deck.length) {
-            msgEl.innerHTML = "Congratulations Player 1, you have won!";
-        } else if (player2.length === deck.length) {
-            msgEl.innerHTML = "Congratulations Player 2, you have won!";
-        }
-    };
+function renderMessage(winner) {
+    msgEl.innerHTML = `Congratulations ${winner}, you have won!`;
+};
