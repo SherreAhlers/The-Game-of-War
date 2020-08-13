@@ -17,7 +17,6 @@ const cardWorth = {
     'A': 14
 };
 
-
 /*----- app's state (variables) -----*/
 let player1 = [];
 let player2 = [];
@@ -50,7 +49,6 @@ function init() {
     player1Card = undefined;
     player2Card = undefined;
     winner = undefined;
-
     values.forEach(v => {
         suits.forEach(s => {
             let card = {
@@ -61,34 +59,7 @@ function init() {
         })
     });
     shuffle(deck);
-    console.log(player1)
-    console.log(player2)
-    console.log(deck)
-        // renderShuffleDeck();
-}
-
-// function init() {
-//     deck = [];
-//     values.forEach(v => {
-//         suits.forEach(s => {
-//             let card = {
-//                 face: s + v,
-//                 worth: cardWorth[v]
-//             }
-//             deck.push(card);
-//         })
-//     });
-//     player2 = [];
-//     player1 = [];
-//     warArray = [];
-//     player1Card = null;
-//     player2Card = null;
-//     winner = null;
-//     shuffleDeck(deck);
-//     renderShuffleDeck();
-//     render()
-// }
-
+};
 
 function shuffle(a) {
     var j, x, i;
@@ -100,7 +71,6 @@ function shuffle(a) {
     }
     return a;
 };
-// shuffle(deck);
 
 function dealHands() {
     while (deck.length) {
@@ -117,17 +87,6 @@ function showCards() {
     const p2Card = document.getElementById('board-deck-p2')
     p2Card.className = `card ${player2Card.face}`
 };
-
-// renderShuffleDeck();
-
-// function renderShuffleDeck() {
-//     const tempDeck = [...deck];
-//     shuffleDeck = [];
-//     while (tempDeck.length) {
-//         const rndIdx = Math.floor(Math.random() * tempDeck.length);
-//         shuffleDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-//     }
-// };
 
 function renderShowCards(evt) {
     msgEl.innerHTML = "";
@@ -194,16 +153,9 @@ function checkGameWin() {
 };
 
 function renderMessage(winner) {
-    msgEl.innerHTML = `Congratulations ${winner}, you have won!`;
-};
+    msgEl.innerHTML = `Congratulations ${winner}, you have won!`
+}
 
 function renderWar() {
     msgEl.innerHTML = "WAR!"
-        // setTimeout(() => {
-        //     msgEl.innerHTML = ""
-        // }, 2000);
-};
-
-function render() {
-    replayEl.style.visibility = checkGameWin() ? 'visible' : 'hidden'
 }
