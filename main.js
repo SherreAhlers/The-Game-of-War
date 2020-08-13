@@ -17,21 +17,11 @@ const cardWorth = {
     'A': 14
 };
 
-const player1 = [];
-const player2 = [];
 
 /*----- app's state (variables) -----*/
+let player1 = [];
+let player2 = [];
 let deck = []
-values.forEach(v => {
-    suits.forEach(s => {
-        let card = {
-            face: s + v,
-            worth: cardWorth[v]
-        }
-        deck.push(card);
-    })
-});
-
 let warArray = [];
 let player1Card;
 let player2Card;
@@ -45,9 +35,61 @@ const replayEl = document.getElementById('replay');
 
 /*----- event listeners -----*/
 document.querySelector('#play').addEventListener('click', renderShowCards);
-// replayEl.addEventListener('click', init);
+replayEl.addEventListener('click', init);
 
 /*----- functions -----*/
+init();
+
+function init() {
+    p1Card.className = 'card';
+    p2Card.className = 'card';
+    player1 = [];
+    player2 = [];
+    deck = []
+    warArray = [];
+    player1Card = undefined;
+    player2Card = undefined;
+    winner = undefined;
+
+    values.forEach(v => {
+        suits.forEach(s => {
+            let card = {
+                face: s + v,
+                worth: cardWorth[v]
+            }
+            deck.push(card);
+        })
+    });
+    shuffle(deck);
+    console.log(player1)
+    console.log(player2)
+    console.log(deck)
+        // renderShuffleDeck();
+}
+
+// function init() {
+//     deck = [];
+//     values.forEach(v => {
+//         suits.forEach(s => {
+//             let card = {
+//                 face: s + v,
+//                 worth: cardWorth[v]
+//             }
+//             deck.push(card);
+//         })
+//     });
+//     player2 = [];
+//     player1 = [];
+//     warArray = [];
+//     player1Card = null;
+//     player2Card = null;
+//     winner = null;
+//     shuffleDeck(deck);
+//     renderShuffleDeck();
+//     render()
+// }
+
+
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -58,21 +100,14 @@ function shuffle(a) {
     }
     return a;
 };
-shuffle(deck);
+// shuffle(deck);
 
 function dealHands() {
     while (deck.length) {
         player1.push(deck.pop())
         player2.push(deck.pop())
-        console.log(deck)
     }
-    console.log(player1)
-    console.log(player2)
-        // if (deck.length <= 2) {
-        //     checkGameWin()
-
-    // }
-}
+};
 
 function showCards() {
     player1Card = player1[player1.length - 1]
@@ -83,20 +118,20 @@ function showCards() {
     p2Card.className = `card ${player2Card.face}`
 };
 
-renderShuffleDeck();
+// renderShuffleDeck();
 
-function renderShuffleDeck() {
-    const tempDeck = [...deck];
-    shuffleDeck = [];
-    while (tempDeck.length) {
-        const rndIdx = Math.floor(Math.random() * tempDeck.length);
-        shuffleDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-    }
-};
-//
+// function renderShuffleDeck() {
+//     const tempDeck = [...deck];
+//     shuffleDeck = [];
+//     while (tempDeck.length) {
+//         const rndIdx = Math.floor(Math.random() * tempDeck.length);
+//         shuffleDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+//     }
+// };
+
 function renderShowCards(evt) {
+    msgEl.innerHTML = "";
     const btn = evt.target
-        // when this is clicked run these two functions
     if (btn === document.querySelector('#play')) {
         if (checkGameWin() === false) {
             dealHands()
@@ -104,15 +139,12 @@ function renderShowCards(evt) {
             roundWin()
         } else {
             renderMessage(checkGameWin())
-            console.log(checkGameWin())
         }
     };
 };
 
 function roundWin() {
     if (player1Card.worth > player2Card.worth) {
-        console.log('player1 wins!')
-            // return player1 // need to find a way to put message into DOM
         player1.unshift(player2Card)
         player2.pop()
         player1.unshift(player1.pop())
@@ -120,33 +152,24 @@ function roundWin() {
             player1.unshift(warArray.pop())
         }
     } else if (player1Card.worth < player2Card.worth) {
-        console.log('player 2 wins!')
         player2.unshift(player1Card)
         player1.pop()
         player2.unshift(player2.pop())
         while (warArray.length) {
             player2.unshift(warArray.pop())
         }
-        // return player2 // need to find a way to put message into DOM
     } else {
-        console.log('tie, run war function')
         for (let i = 0; i < 2; i++) {
             warArray.push(player2.pop())
             warArray.push(player1.pop())
         }
+        renderWar()
         setTimeout(() => {
             showCards()
             roundWin()
             war()
         }, 2000);
     }
-    // }
-    // if (player1.length === 0) {
-    //     // gameWin()
-    //     // console.log('game over player 1 wins!') // find way to make this a DOM message
-    // } else if (player2.length === 0) {
-    //     // gameWin()
-    // }
 };
 
 function war() {
@@ -158,13 +181,12 @@ function war() {
 
 };
 
-
 function checkGameWin() {
     if (player1.length === deck.length) {
-        winner = 'player1'
+        winner = 'Player1'
         return winner;
     } else if (player2.length === deck.length) {
-        winner = 'player2'
+        winner = 'Player2'
         return winner;
     } else {
         return false;
@@ -174,3 +196,14 @@ function checkGameWin() {
 function renderMessage(winner) {
     msgEl.innerHTML = `Congratulations ${winner}, you have won!`;
 };
+
+function renderWar() {
+    msgEl.innerHTML = "WAR!"
+        // setTimeout(() => {
+        //     msgEl.innerHTML = ""
+        // }, 2000);
+};
+
+function render() {
+    replayEl.style.visibility = checkGameWin() ? 'visible' : 'hidden'
+}
